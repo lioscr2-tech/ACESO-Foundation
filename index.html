@@ -399,6 +399,52 @@ img{display:block;max-width:100%}
   .feature__art.photo{min-height:300px}
 }
 @media (max-width:560px){.shots.two{grid-template-columns:1fr}}
+
+/* refresh 2 */
+.mstrip .mi{padding:34px 30px 34px 30px}
+.mstrip .mi:first-child{padding-left:0}
+.mstrip .mi .md{max-width:30ch}
+.gallery{columns:3 240px;column-gap:14px;margin-top:40px}
+.gallery figure{break-inside:avoid;margin:0 0 14px;border-radius:14px;overflow:hidden;position:relative;background:var(--paper2)}
+.gallery img{width:100%;height:auto;display:block;transition:transform .6s}
+.gallery figure:hover img{transform:scale(1.03)}
+.gallery figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 14px 11px;font-size:12.5px;line-height:1.35;color:#fff;background:linear-gradient(transparent,rgba(6,22,52,.72))}
+.mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:clamp(150px,17vw,230px);gap:12px;margin-top:38px}
+.mosaic figure{margin:0;border-radius:16px;overflow:hidden;position:relative;background:var(--paper2)}
+.mosaic figure.w2{grid-column:span 2}.mosaic figure.h2{grid-row:span 2}
+.mosaic img{width:100%;height:100%;object-fit:cover;display:block}
+.mosaic figcaption{position:absolute;left:0;right:0;bottom:0;padding:24px 14px 10px;font-size:12.5px;color:#fff;background:linear-gradient(transparent,rgba(6,22,52,.7))}
+.ev.has-ic{grid-template-columns:220px 1fr 112px;align-items:center}
+.ev .ic{width:112px;height:84px;border-radius:12px;overflow:hidden;background:var(--paper2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center}
+.ev .ic img{width:100%;height:100%;object-fit:cover}
+.ev .ic svg{width:46px;height:46px}
+.feature__art.illus{background:radial-gradient(circle at 60% 40%,#e3eefb,#f3f7fd);display:flex;align-items:center;justify-content:center;min-height:300px}
+.feature__art.illus svg{width:min(78%,360px);height:auto}
+.feature.compact .feature__body{padding:clamp(28px,3.4vw,46px)}
+.feature.compact h3{font-size:clamp(26px,3vw,38px)}
+.pr-check{stroke-dasharray:40;stroke-dashoffset:40;animation:prc 3.6s ease-in-out infinite}
+.pr-check.c2{animation-delay:.6s}.pr-check.c3{animation-delay:1.2s}
+@keyframes prc{0%{stroke-dashoffset:40}25%,80%{stroke-dashoffset:0}100%{stroke-dashoffset:40}}
+.pr-lens{animation:prl 7s ease-in-out infinite;transform-origin:center}
+@keyframes prl{0%,100%{transform:translate(0,0)}50%{transform:translate(-46px,52px)}}
+.partner-banner{margin-top:26px;border:1px solid var(--line);border-radius:16px;overflow:hidden;background:#f8f4ef}
+.partner-banner img{display:block;width:100%;height:auto}
+.partner-banner p{background:#fff;padding:16px 20px;color:var(--muted);font-size:14px;line-height:1.55;margin:0;border-top:1px solid var(--line)}
+.partner-banner p a{color:var(--azure)}
+.pub{grid-template-columns:auto 1fr}
+@media (max-width:980px){
+  .mstrip .mi{padding:26px 18px}
+  .mstrip .mi:nth-child(odd){padding-left:0}
+  .mstrip .mi:nth-child(2){border-right:none}
+  .mstrip .mi:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .mosaic{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px}
+  .mosaic figure.w2{grid-column:span 2}
+  .ev.has-ic{grid-template-columns:1fr 84px;gap:6px 16px}
+  .ev.has-ic .when{grid-column:1/-1}
+  .ev .ic{width:84px;height:64px}
+  .gallery{columns:2 150px;column-gap:10px}.gallery figure{margin-bottom:10px}
+}
+@media (prefers-reduced-motion:reduce){.pr-check,.pr-lens{animation:none;stroke-dashoffset:0}}
 </style>
 </head>
 <body>
@@ -452,6 +498,20 @@ img{display:block;max-width:100%}
 
   <section class="section tint">
     <div class="wrap">
+      <div class="sh center reveal"><div class="eyebrow">In the field</div><h3>Students, out in the world.</h3></div>
+      <div class="mosaic reveal d1">
+        <figure class="w2 h2"><img src="img/kilimanjaro/summit-banner.jpg" alt="The ACESO team at the summit of Mount Kilimanjaro with the ACESO banner" loading="lazy"><figcaption>Our banner at the top of Kilimanjaro</figcaption></figure>
+        <figure><img src="img/gallery/bp-reading.jpg" alt="A student takes a visitor's blood pressure" loading="lazy"><figcaption>Health fair screenings</figcaption></figure>
+        <figure class="h2"><img src="img/gallery/team-photo.jpg" alt="ACESO and MedVantage members together at a health fair" loading="lazy"><figcaption>The team</figcaption></figure>
+        <figure><img src="img/gallery/members-demo.jpg" alt="MedVantage members talking with families at their club table" loading="lazy"><figcaption>MedVantage at school</figcaption></figure>
+        <figure class="w2"><img src="img/kilimanjaro/mawenzi-sunrise.jpg" alt="Sunrise over Mawenzi peak above the clouds" loading="lazy"><figcaption>Sunrise on the climb</figcaption></figure>
+        <figure class="w2"><img src="img/gallery/cchp-booth.jpg" alt="Students volunteering at a community health fair table" loading="lazy"><figcaption>Volunteering at community health fairs</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
       <div class="stat-band reveal">
         <div class="stat-num" aria-label="ACESO-reported campaign total: 12,980 dollars">$12,980</div>
         <div class="stat-side">
@@ -463,21 +523,21 @@ img{display:block;max-width:100%}
     </div>
   </section>
 
-  <section class="section">
+  <section class="section tint">
     <div class="wrap">
-      <div class="feature reveal">
+      <div class="feature reveal" style="background:#fff">
         <div class="feature__body">
           <div class="eyebrow">The lab</div>
           <h3>Zweistein Innovation Lab</h3>
           <p>ACESO's student-led biomedical research initiative, exploring how existing medical technology can be adapted to improve safety and outcomes for the most vulnerable patients.</p>
           <button type="button" class="btn btn-primary" data-nav="research">Enter the lab →</button>
         </div>
-        <div class="feature__art"><div class="fs fs-a"></div><div class="fs fs-b"></div></div>
+        <div class="feature__art photo"><img src="img/research/lab-bench.jpg" alt="The bench at Zweistein Innovation Lab" loading="lazy"></div>
       </div>
     </div>
   </section>
 
-  <section class="section tint">
+  <section class="section">
     <div class="wrap">
       <div class="cta-band reveal">
         <h3>Questions about ACESO’s research and education work?</h3>
@@ -528,7 +588,7 @@ img{display:block;max-width:100%}
           <p>Reach our student-led team about research, partnerships, or supporting the foundation.</p>
           <button class="btn btn-primary" data-nav="contact">Contact us →</button>
         </div>
-        <div class="feature__art"><div class="fs fs-a"></div><div class="fs fs-b"></div></div>
+        <div class="feature__art photo"><img src="img/gallery/team-photo.jpg" alt="ACESO and MedVantage members together at a health fair" loading="lazy" style="object-position:50% 35%"></div>
       </div>
     </div>
   </section>
@@ -551,9 +611,10 @@ img{display:block;max-width:100%}
     <div class="wrap">
       <div class="feature reveal" style="margin-bottom:68px">
         <div class="feature__body">
-          <div class="eyebrow">Focus</div>
-          <h3>Neonatal life-support systems.</h3>
-          <p>We study premature infant care and extracorporeal life-support, including neonatal ECMO and artificial placenta platforms. Roughly 1 in 10 babies worldwide are born prematurely, and preterm birth complications are a leading cause of death in children under five.</p>
+          <div class="eyebrow">About the lab</div>
+          <h3>Zweistein Innovation Lab.</h3>
+          <p>Zweistein Innovation Lab is ACESO's research arm. Students work with physician and engineering mentors on early-stage questions, run bench experiments, and write up what they find for posters and journals.</p>
+          <p style="margin-top:14px">Our focus is neonatal life support: the ECMO circuits and artificial placenta platforms that keep the smallest, most premature babies alive. Roughly 1 in 10 babies worldwide are born prematurely, and preterm birth complications are a leading cause of death in children under five.</p>
           <a class="source-link" href="https://www.who.int/campaigns/world-prematurity-day/2025/key-messages" target="_blank" rel="noopener">Source: World Health Organization →</a>
         </div>
         <div class="feature__art photo"><img src="img/research/lab-bench.jpg" alt="The bench at Zweistein Innovation Lab" loading="lazy"></div>
@@ -587,60 +648,54 @@ img{display:block;max-width:100%}
           <div class="pmid">
             <h4>Case Mix and Protocol Constraints in Diagnostic Language Model Conversations: A Secondary Analysis of Released MedR-Bench Outputs</h4>
             <div class="cite">Li OM, Li SXT, Li Y. <em>Cureus</em>. 2026;18(10):e118344.</div>
-            <p>A second look at how AI diagnostic conversations perform across different kinds of cases, using publicly released benchmark outputs.</p>
+            <p>A secondary analysis of publicly released MedR-Bench outputs, looking at how the mix of cases and the rules of each conversation shape how a diagnostic language model performs. It shows why benchmark scores need that context before anyone leans on them.</p>
             <a href="https://doi.org/10.7759/cureus.118344" target="_blank" rel="noopener">doi:10.7759/cureus.118344 →</a>
           </div>
-          <span class="badge b-pub">Peer reviewed</span>
         </div>
         <div class="pub reveal">
           <div class="pn">02</div>
           <div class="pmid">
             <h4>Individualized and Platform-Designated Gene-Editing Studies in the Registered Clinical Record: A Case-by-Case Census Against 148 Eligible Studies</h4>
             <div class="cite">Li OM, Li Y. <em>Cureus</em>. 2026;18(10):e117975.</div>
-            <p>A study-by-study count of bespoke and platform gene-editing trials in clinical registries.</p>
+            <p>A case-by-case census of registered gene-editing studies, sorting 148 eligible studies into one-patient, individualized therapies and platform designs. It maps where personalized gene editing actually stands in the clinical record.</p>
             <a href="https://doi.org/10.7759/cureus.117975" target="_blank" rel="noopener">doi:10.7759/cureus.117975 →</a>
           </div>
-          <span class="badge b-pub">Peer reviewed</span>
         </div>
         <div class="pub reveal">
           <div class="pn">03</div>
           <div class="pmid">
             <h4>Results Reporting and Registry-Linked Publications Among ECMO Studies Registered on ClinicalTrials.gov: A Cross-Sectional Meta-Research Study</h4>
             <div class="cite">Li OM, Li Y. <em>Cureus</em>. 2026;18(10):e117548.</div>
-            <p>How often registered ECMO studies actually report results or publish.</p>
+            <p>A cross-sectional look at ECMO studies registered on ClinicalTrials.gov, checking how often they post results and link to a publication. Unreported studies leave gaps in the evidence clinicians rely on.</p>
             <a href="https://doi.org/10.7759/cureus.117548" target="_blank" rel="noopener">doi:10.7759/cureus.117548 →</a>
           </div>
-          <span class="badge b-pub">Peer reviewed</span>
         </div>
         <div class="pub reveal">
           <div class="pn">04</div>
           <div class="pmid">
             <h4>Digital Twins and Offline Reinforcement Learning for Mechanical Circulatory Support Decisions</h4>
             <div class="cite">Li OM, Li Y, Li SXT. <em>Cureus</em>. 2026;18(9):e117234.</div>
-            <p>How patient digital twins and offline learning could support decisions in mechanical circulatory support.</p>
+            <p>A look at how patient digital twins and offline reinforcement learning could support decisions about heart pumps and other mechanical circulatory support, and what has to be in place before they are safe to use.</p>
             <a href="https://doi.org/10.7759/cureus.117234" target="_blank" rel="noopener">doi:10.7759/cureus.117234 →</a>
           </div>
-          <span class="badge b-pub">Peer reviewed</span>
         </div>
         <div class="pub reveal">
           <div class="pn">05</div>
           <div class="pmid">
             <h4>In Vivo Base Editing for Neonatal Inborn Errors of Metabolism</h4>
             <div class="cite">Li OM, Li Y, Li SXT. <em>Cureus</em>. 2026;18(8):e114354.</div>
-            <p>Review article on clinical progress, N-of-1 therapy, and ethics. It is not an ACESO clinical trial or original experimental validation.</p>
+            <p>A review of in vivo base editing for metabolic disorders that show up in newborns, covering clinical progress so far, one-patient (N-of-1) therapies, and the ethical questions they raise.</p>
             <a href="https://pubmed.ncbi.nlm.nih.gov/42583353/" target="_blank" rel="noopener">PubMed PMID 42583353 →</a>
           </div>
-          <span class="badge b-rev">Review</span>
         </div>
         <div class="pub reveal">
           <div class="pn">06</div>
           <div class="pmid">
             <h4>Hemolysis in a Novel Centrifugal Blood Pump With Low Priming Volume</h4>
             <div class="cite">Li S, Luo S, Li O, Wendel HP, Avci-Adali M, Han X, Chen X. <em>ASAIO J</em>. 2026;72(4):291-301.</div>
-            <p>In-vitro comparative study using human blood and numerical analysis. Further clinical research is required.</p>
+            <p>An in vitro study using human blood and computer modeling to compare red blood cell damage in a new low-priming-volume centrifugal pump. Lower priming volume matters most for infants, who have very little blood to spare.</p>
             <a href="https://pubmed.ncbi.nlm.nih.gov/40444779/" target="_blank" rel="noopener">PubMed PMID 40444779 →</a>
           </div>
-          <span class="badge b-pub">Peer reviewed</span>
         </div>
       </div>
       <p class="callout reveal" style="margin-top:28px">Only published work is listed. Papers under review are added when they publish.</p>
@@ -672,9 +727,9 @@ img{display:block;max-width:100%}
         <div class="btns">
           <a class="btn btn-primary" href="https://secure.qgiv.com/for/ayearofnicucare/" target="_blank" rel="noopener">Fill the NICU Calendar →</a>
         </div>
-        <div class="partner-note">
-          <img src="img/nicu/icha-logo.png" alt="Institute for Child Healthcare Africa logo" loading="lazy">
-          <p>ICHA is a Minnesota-based 501(c)(3) that works alongside African clinicians to strengthen care for newborns, children and mothers. All gifts to this campaign are granted by the ACESO Foundation to ICHA for NICU patient care in Arusha after the campaign closes. <a href="https://ichafrica.org" target="_blank" rel="noopener">Visit ichafrica.org</a></p>
+        <div class="partner-banner">
+          <img src="img/nicu/partnership-logos.png" alt="ACESO Fundraising and Institute for Child Healthcare Africa logos">
+          <p><b>A partnership with ICHA.</b> ACESO Fundraising and the Institute for Child Healthcare Africa run this campaign together. ICHA is a Minnesota-based 501(c)(3) that works alongside African clinicians to strengthen care for newborns, children and mothers, and it supports the NICU at Arusha Lutheran Medical Centre. Every gift goes to the campaign fund, and ACESO grants it to ICHA for NICU patient care after the campaign closes. <a href="https://ichafrica.org" target="_blank" rel="noopener">Visit ichafrica.org</a></p>
         </div>
       </div>
       <figure class="reveal d1" style="margin:0">
@@ -683,10 +738,13 @@ img{display:block;max-width:100%}
       </figure>
     </div>
     <div class="wrap" style="margin-top:clamp(28px,4vh,48px)">
-      <div class="shots two reveal">
-        <figure class="shot"><img src="img/nicu/feeding.jpg" alt="A mother feeds her baby in the NICU" loading="lazy"><figcaption>Mothers stay close to their babies in the NICU. Photo courtesy of ICHA.</figcaption></figure>
-        <figure class="shot"><img src="img/nicu/preemie.jpg" alt="A clinician listens to a premature baby's heart and lungs" loading="lazy"><figcaption>Daily checks for babies born early. Photo courtesy of ICHA.</figcaption></figure>
+      <div class="shots four reveal">
+        <figure class="shot tall"><img src="img/nicu/mother-holding.jpg" alt="A mother holds her premature baby close" loading="lazy"><figcaption>Skin-to-skin time for a baby born early</figcaption></figure>
+        <figure class="shot tall"><img src="img/nicu/feeding.jpg" alt="A mother feeds her baby in the NICU" loading="lazy"><figcaption>Mothers stay close to their babies</figcaption></figure>
+        <figure class="shot tall"><img src="img/nicu/preemie.jpg" alt="A clinician listens to a premature baby's heart and lungs" loading="lazy"><figcaption>Daily checks for the smallest patients</figcaption></figure>
+        <figure class="shot tall"><img src="img/nicu/bw-baby.jpg" alt="A clinician examines a newborn" loading="lazy"><figcaption>Every day of care counts</figcaption></figure>
       </div>
+      <p class="photo-cap" style="margin-top:10px">NICU photos courtesy of ICHA.</p>
     </div>
   </section>
   <section class="fund-hero past">
@@ -718,11 +776,16 @@ img{display:block;max-width:100%}
         </div>
         <div class="feature__art photo"><img src="img/kilimanjaro/summit-banner.jpg" alt="The ACESO team at the Uhuru Peak summit sign holding the Kilimanjaro Summit banner" loading="lazy"></div>
       </div>
-      <div class="shots four reveal d1">
-        <figure class="shot tall"><img src="img/kilimanjaro/lava-tower-team.jpg" alt="The climbing team at the Lava Tower sign" loading="lazy"><figcaption>The climbing team at Lava Tower</figcaption></figure>
-        <figure class="shot tall"><img src="img/kilimanjaro/rainforest-trail.jpg" alt="Climbers on a misty rainforest trail" loading="lazy"><figcaption>Through the rainforest</figcaption></figure>
-        <figure class="shot tall"><img src="img/kilimanjaro/barranco-camp.jpg" alt="Tents below the summit" loading="lazy"><figcaption>Camp below the summit</figcaption></figure>
-        <figure class="shot tall"><img src="img/kilimanjaro/porters-alpine.jpg" alt="Porters carrying loads across the alpine desert" loading="lazy"><figcaption>The porters who made the climb possible</figcaption></figure>
+      <div class="gallery reveal d1">
+        <figure><img src="img/kilimanjaro/lava-tower-team.jpg" alt="The climbing team at the Lava Tower sign" loading="lazy"><figcaption>The climbing team at Lava Tower</figcaption></figure>
+        <figure><img src="img/kilimanjaro/rainforest-trail.jpg" alt="Climbers on a misty rainforest trail" loading="lazy"><figcaption>Through the rainforest</figcaption></figure>
+        <figure><img src="img/kilimanjaro/mawenzi-sunrise.jpg" alt="Sunrise over Mawenzi peak" loading="lazy"><figcaption>Sunrise over Mawenzi</figcaption></figure>
+        <figure><img src="img/kilimanjaro/rainforest-porter.jpg" alt="A porter carrying a load through the rainforest" loading="lazy"><figcaption>The first day in the rainforest</figcaption></figure>
+        <figure><img src="img/kilimanjaro/barranco-camp.jpg" alt="Tents below the summit" loading="lazy"><figcaption>Camp below the summit</figcaption></figure>
+        <figure><img src="img/kilimanjaro/night-sky.jpg" alt="The Milky Way over the mountain at night" loading="lazy"><figcaption>Night sky from camp</figcaption></figure>
+        <figure><img src="img/kilimanjaro/porters-alpine.jpg" alt="Porters carrying loads across the alpine desert" loading="lazy"><figcaption>The porters who made the climb possible</figcaption></figure>
+        <figure><img src="img/kilimanjaro/misty-trail.jpg" alt="A lone climber on a foggy trail" loading="lazy"><figcaption>Into the clouds</figcaption></figure>
+        <figure><img src="img/kilimanjaro/clouds-sunset.jpg" alt="Sunset above a sea of clouds" loading="lazy"><figcaption>Above the clouds at sunset</figcaption></figure>
       </div>
     </div>
   </section>
@@ -747,7 +810,7 @@ img{display:block;max-width:100%}
           <img class="prog-img" src="img/outreach/medvantage-table.jpg" alt="MedVantage members at their club table" loading="lazy">
           <span class="badge b-proj">School Club</span>
           <h4>MedVantage</h4>
-          <p>Quarry Lane's student medicine club, run in partnership with ACESO. Talks with professionals, published peer reviews, hands-on training and community outreach.</p>
+          <p>Quarry Lane's student medicine club, run in partnership with ACESO. Talks with professionals, a new preprint review club, hands-on training and community outreach.</p>
           <span class="open">Learn more <span>→</span></span>
         </button>
         <button type="button" class="prog click reveal d1" id="openFairs" aria-haspopup="dialog">
@@ -762,14 +825,25 @@ img{display:block;max-width:100%}
   </section>
   <section class="section tint">
     <div class="wrap">
-      <div class="feature reveal" style="background:#fff">
+      <div class="feature compact reveal" style="background:#fff">
         <div class="feature__body">
-          <div class="eyebrow">New · Preprint Review Club</div>
-          <h3>Real peer review, written by students.</h3>
-          <p>Each month the group reads a newly posted study and writes a review on PREreview. Members check whether the methods hold up, whether the sample is big enough, whether there are proper control groups, and whether the conclusions match the data. Reviews are written together under ACESO, so no experience is needed, and each published review gets a DOI with every reviewer named.</p>
-          <div class="eyebrow" style="color:var(--muted2);letter-spacing:.16em">About one review a month · A few hours each · School year</div>
+          <div class="eyebrow">In progress · Preprint Review Club</div>
+          <h3>Learning how peer review works.</h3>
+          <p>MedVantage members are starting a club that reads newly posted studies and practices reviewing them: checking the methods, the sample size, the control groups, and whether the conclusions match the data. The goal is to post the club's first reviews on PREreview. None have been published yet.</p>
         </div>
-        <div class="feature__art"><div class="fs fs-a"></div><div class="fs fs-b"></div></div>
+        <div class="feature__art illus" aria-hidden="true"><svg viewBox="0 0 320 260" xmlns="http://www.w3.org/2000/svg">
+  <rect x="78" y="34" width="150" height="196" rx="10" fill="#c9dcf3"/>
+  <rect x="66" y="22" width="150" height="196" rx="10" fill="#fff" stroke="#9fc0e6" stroke-width="2"/>
+  <rect x="84" y="42" width="80" height="9" rx="4.5" fill="#1E57A3"/>
+  <rect x="84" y="58" width="112" height="5" rx="2.5" fill="#c3d6ee"/>
+  <g fill="#dbe6f4"><rect x="84" y="80" width="96" height="6" rx="3"/><rect x="84" y="114" width="90" height="6" rx="3"/><rect x="84" y="148" width="100" height="6" rx="3"/><rect x="84" y="182" width="70" height="6" rx="3"/></g>
+  <g fill="none" stroke="#1E57A3" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+    <path class="pr-check" d="M186 82 l7 7 l13 -15"/>
+    <path class="pr-check c2" d="M186 116 l7 7 l13 -15"/>
+    <path class="pr-check c3" d="M186 150 l7 7 l13 -15"/>
+  </g>
+  <g class="pr-lens"><circle cx="252" cy="78" r="30" fill="rgba(220,235,251,.55)" stroke="#2E6EB4" stroke-width="6"/><path d="M273 99 l26 26" stroke="#0d3271" stroke-width="10" stroke-linecap="round"/></g>
+</svg></div>
       </div>
     </div>
   </section>
@@ -777,20 +851,29 @@ img{display:block;max-width:100%}
     <div class="wrap">
       <div class="sh reveal"><div class="eyebrow">What's happening</div><h3>Coming up.</h3></div>
       <div class="events reveal">
-        <div class="ev"><div class="when">December 9, 2026</div><div><h4>Stop the Bleed training</h4><p>Hands-on training to recognize life-threatening bleeding and stop it with direct pressure, wound packing and tourniquets.</p></div></div>
-        <div class="ev"><div class="when">Date to come</div><div><h4>Pleasanton Farmers Market Health Fair</h4><p>A health fair MedVantage members are organizing and running themselves, building on what they learned volunteering at CCHP health fairs.</p></div></div>
+        <div class="ev has-ic"><div class="when">December 9, 2026</div><div><h4>Stop the Bleed training</h4><p>Hands-on training to recognize life-threatening bleeding and stop it with direct pressure, wound packing and tourniquets.</p></div><div class="ic" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#1E57A3" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 5c6 9 13 16 13 24a13 13 0 0 1-26 0c0-8 7-15 13-24z" fill="#dcebfb"/><path d="M24 23v12M18 29h12"/></svg></div></div>
+        <div class="ev has-ic"><div class="when">Date to come</div><div><h4>Pleasanton Farmers Market Health Fair</h4><p>A health fair MedVantage members are organizing and running themselves, building on what they learned volunteering at CCHP health fairs.</p></div><div class="ic"><img src="img/gallery/bp-hall.jpg" alt="A blood pressure station at a health fair" loading="lazy"></div></div>
       </div>
       <div class="sh reveal" style="margin-top:72px"><div class="eyebrow">So far</div><h3>What members have done.</h3></div>
       <div class="events reveal">
-        <div class="ev"><div class="when">Guest speakers</div><div><p>Medical professionals came in to talk with members about their work and how they got there.</p></div></div>
-        <div class="ev"><div class="when">Health fairs</div><div><p>Members volunteered at community health fairs, running blood pressure and other free screenings.</p></div></div>
-        <div class="ev"><div class="when">Giving back</div><div><p>A fundraiser for a homeless shelter, and now hygiene bags for people experiencing homelessness in Berkeley and donations to Shepherd's Gate. Through ACESO, the club has helped raise <span class="raised">over $13,000</span> for healthcare and research.</p></div></div>
+        <div class="ev has-ic"><div class="when">Guest speakers</div><div><p>Medical professionals came in to talk with members about their work and how they got there.</p></div><div class="ic" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#1E57A3" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="17" y="5" width="14" height="24" rx="7" fill="#dcebfb"/><path d="M11 23a13 13 0 0 0 26 0M24 36v7M17 43h14"/></svg></div></div>
+        <div class="ev has-ic"><div class="when">Health fairs</div><div><p>Members volunteered at community health fairs, running blood pressure and other free screenings.</p></div><div class="ic"><img src="img/gallery/cchp-booth.jpg" alt="Students at a community health fair table" loading="lazy"></div></div>
+        <div class="ev has-ic"><div class="when">Giving back</div><div><p>A fundraiser for a homeless shelter, and now hygiene bags for people experiencing homelessness in Berkeley and donations to Shepherd's Gate. Through ACESO, the club has helped raise <span class="raised">over $13,000</span> for healthcare and research.</p></div><div class="ic" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="#1E57A3" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M24 22c-3-6-12-6-12 1 0 5 6 9 12 13 6-4 12-8 12-13 0-7-9-7-12-1z" fill="#dcebfb"/><path d="M5 30l7 6h10M43 30l-7 6H26M12 36v7M36 36v7"/></svg></div></div>
       </div>
-      <div class="shots four reveal" style="margin-top:56px">
-        <figure class="shot tall"><img src="img/outreach/volunteer-bp.jpg" alt="A member takes a visitor's blood pressure" loading="lazy"><figcaption>Members volunteering at a health fair</figcaption></figure>
-        <figure class="shot tall"><img src="img/outreach/team.jpg" alt="MedVantage members at a health fair" loading="lazy"><figcaption>The MedVantage team at a health fair</figcaption></figure>
-        <figure class="shot tall"><img src="img/outreach/bp-check.jpg" alt="Students take blood pressure readings for community members" loading="lazy"><figcaption>Blood pressure checks at a community health fair</figcaption></figure>
-        <figure class="shot tall"><img src="img/outreach/screening.jpg" alt="Students run free screenings for a community member" loading="lazy"><figcaption>Free screenings for the community</figcaption></figure>
+      <div class="sh reveal" style="margin-top:72px"><div class="eyebrow">Gallery</div><h3>Out in the community.</h3></div>
+      <div class="gallery reveal">
+        <figure><img src="img/outreach/volunteer-bp.jpg" alt="A member takes a visitor's blood pressure" loading="lazy"><figcaption>Blood pressure checks at a health fair</figcaption></figure>
+        <figure><img src="img/gallery/members-demo.jpg" alt="MedVantage members talking with families at their club table" loading="lazy"><figcaption>MedVantage members with families at school</figcaption></figure>
+        <figure><img src="img/gallery/bp-station.jpg" alt="A volunteer runs a blood pressure station" loading="lazy"><figcaption>A screening station ready for visitors</figcaption></figure>
+        <figure><img src="img/gallery/consult.jpg" alt="A student walks a visitor through a form" loading="lazy"><figcaption>Walking a visitor through their results</figcaption></figure>
+        <figure><img src="img/gallery/ultrasound-demo.jpg" alt="Students run a screening station with a laptop" loading="lazy"><figcaption>Members running a screening station</figcaption></figure>
+        <figure><img src="img/outreach/team.jpg" alt="MedVantage members at a health fair" loading="lazy"><figcaption>The MedVantage team</figcaption></figure>
+        <figure><img src="img/gallery/screening-desk.jpg" alt="Students help visitors at a screening table" loading="lazy"><figcaption>Helping visitors at the screening desk</figcaption></figure>
+        <figure><img src="img/gallery/glucose-check.jpg" alt="Volunteers run a free screening for a visitor" loading="lazy"><figcaption>Free screenings for the community</figcaption></figure>
+        <figure><img src="img/gallery/club-table.jpg" alt="Members at the MedVantage club table" loading="lazy"><figcaption>The MedVantage club table</figcaption></figure>
+        <figure><img src="img/gallery/visitor-talk.jpg" alt="A student talks with a visitor about their health" loading="lazy"><figcaption>Talking with visitors about their health</figcaption></figure>
+        <figure><img src="img/gallery/student-screening.jpg" alt="Members take a reading at a screening table" loading="lazy"><figcaption>Members at a screening table</figcaption></figure>
+        <figure><img src="img/gallery/team-photo.jpg" alt="ACESO and MedVantage members together at a health fair" loading="lazy"><figcaption>The team at a health fair</figcaption></figure>
       </div>
       <div class="callout reveal">Outreach activities are educational. ACESO does not provide medical treatment or diagnosis, and screenings do not replace professional medical care.</div>
     </div>
@@ -887,7 +970,7 @@ const socials=`<a href="https://instagram.com/acesoinitiative" target="_blank" r
 const footHTML=`<footer class="foot"><div class="wrap"><div class="foot-top"><div><div class="k">ACESO Foundation</div><address>4101 Dublin Blvd., Ste. F, PMB 20<br>Dublin, CA 94568<br>info@acesoworld.com</address></div><div><div class="k">Follow</div><div class="fsoc">${socials}</div></div></div><div class="wordmark">ACESO</div><div class="foot-legal"><span>© 2026 ACESO Foundation. Advancing student-led biomedical research and health education.</span><span>Student-led nonprofit since 2024.</span></div></div></footer>`;
 document.querySelectorAll('.foot-mount').forEach(m=>m.innerHTML=footHTML);
 
-const team=[["Oscar Li","Founder & Executive Director"],["Summer Li","Co-founder & Marketing"],["Daniel Zhang","VP of Fundraising & Partnerships"],["Peter Liao","Campaign Operations & Wellness"],["Daniel Liu","Campaign & Volunteer Coordinator"],["Eric Cao","International Outreach"],["Jerry Wang","Digital Animator"],["Sarah Lu","Digital Artist"],["Ethan Zhang","Executive Assistant"],["Yijiang Li","Adult Advisor"]];
+const team=[["Oscar Li","Founder & President"],["Summer Li","Co-founder & Marketing"],["Daniel Zhang","VP of Fundraising & Partnerships"],["Peter Liao","Campaign Operations & Wellness"],["Daniel Liu","Campaign & Volunteer Coordinator"],["Sarah Lu","Digital Artist"],["Ethan Zhang","Executive Assistant"],["Yijiang Li","Adult Advisor"]];
 const ini=n=>n.split(' ').map(w=>w[0]).slice(0,2).join('');
 document.getElementById('teamGrid').innerHTML=team.map((t,i)=>`<div class="tcard reveal ${i%4?'d'+(i%4):''}"><div class="avatar">${ini(t[0])}</div><div><div class="nm">${t[0]}</div><div class="role">${t[1]}</div></div></div>`).join('');
 
@@ -960,7 +1043,7 @@ document.addEventListener('keydown',e=>{
     else if(!e.shiftKey&&document.activeElement===last){e.preventDefault();first.focus();}
   }
 });
-const medvantage=`<div class="eyebrow">School Club · Quarry Lane</div><h3>MedVantage</h3><p class="intro">MedVantage is the Quarry Lane club affiliated with ACESO. It inspires students who are curious about medicine and supports those already pursuing it, no prior experience needed.</p><div class="modal__list"><div class="row"><div class="d"></div><div><h5>Professional insight</h5><p>Guest talks, Q&amp;A panels and mini-summits with practicing doctors and researchers, on their work and how they got there.</p></div></div><div class="row"><div class="d"></div><div><h5>Preprint Review Club</h5><p>Members read new research and write PREreview peer reviews together, about one a month. Published reviews get a DOI and credit every reviewer.</p></div></div><div class="row"><div class="d"></div><div><h5>Hands-on training</h5><p>Practical skills sessions, starting with Stop the Bleed on December 9, 2026.</p></div></div><div class="row"><div class="d"></div><div><h5>Community health fairs</h5><p>Members volunteer at free screening fairs, and are now planning their own.</p></div></div><div class="row"><div class="d"></div><div><h5>Fundraising for others</h5><p>Raising money for club events and supplies, hygiene bags for people experiencing homelessness in Berkeley, and Shepherd's Gate.</p></div></div><div class="row"><div class="d"></div><div><h5>Volunteer connections</h5><p>Members hear about local healthcare volunteer opportunities as they come up.</p></div></div></div>`;
+const medvantage=`<div class="eyebrow">School Club · Quarry Lane</div><h3>MedVantage</h3><p class="intro">MedVantage is the Quarry Lane club affiliated with ACESO. It inspires students who are curious about medicine and supports those already pursuing it, no prior experience needed.</p><div class="modal__list"><div class="row"><div class="d"></div><div><h5>Professional insight</h5><p>Guest talks, Q&amp;A panels and mini-summits with practicing doctors and researchers, on their work and how they got there.</p></div></div><div class="row"><div class="d"></div><div><h5>Preprint Review Club</h5><p>A new group, still getting started, where members read newly posted studies and practice reviewing them together. No reviews have been published yet.</p></div></div><div class="row"><div class="d"></div><div><h5>Hands-on training</h5><p>Practical skills sessions, starting with Stop the Bleed on December 9, 2026.</p></div></div><div class="row"><div class="d"></div><div><h5>Community health fairs</h5><p>Members volunteer at free screening fairs, and are now planning their own.</p></div></div><div class="row"><div class="d"></div><div><h5>Fundraising for others</h5><p>Raising money for club events and supplies, hygiene bags for people experiencing homelessness in Berkeley, and Shepherd's Gate.</p></div></div><div class="row"><div class="d"></div><div><h5>Volunteer connections</h5><p>Members hear about local healthcare volunteer opportunities as they come up.</p></div></div></div>`;
 const fairs=`<div class="eyebrow">Community</div><h3>Community Health Fairs</h3><p class="intro">ACESO and MedVantage members volunteer at community health fairs, including CCHP's, offering free screenings and simple health information. Next, members plan to run their own fair at the Pleasanton Farmers Market.</p><div class="modal__list"><div class="row"><div class="d"></div><div><h5>Free screenings</h5><p>Basic checks such as blood pressure, glucose, and bone density.</p></div></div><div class="row"><div class="d"></div><div><h5>Health awareness</h5><p>Sharing simple, evidence-based health information with the public.</p></div></div><div class="row"><div class="d"></div><div><h5>Educational only</h5><p>These activities do not replace professional medical care or diagnosis.</p></div></div></div>`;
 document.getElementById('openMedvantage').addEventListener('click',()=>openModal(medvantage));
 document.getElementById('openFairs').addEventListener('click',()=>openModal(fairs));
