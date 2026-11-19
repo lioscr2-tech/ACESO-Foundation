@@ -445,6 +445,22 @@ img{display:block;max-width:100%}
   .gallery{columns:2 150px;column-gap:10px}.gallery figure{margin-bottom:10px}
 }
 @media (prefers-reduced-motion:reduce){.pr-check,.pr-lens{animation:none;stroke-dashoffset:0}}
+.res-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:22px}
+.res-card{text-align:left;border:1px solid var(--line);border-radius:20px;background:#fff;overflow:hidden;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s,border-color .3s;cursor:pointer;padding:0;font:inherit;color:inherit}
+.res-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(10,30,70,.12);border-color:var(--azure)}
+.res-card:focus-visible{outline:3px solid var(--azure);outline-offset:3px}
+.res-card .th{aspect-ratio:4/5;overflow:hidden;background:var(--paper2);border-bottom:1px solid var(--line)}
+.res-card .th img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .5s}
+.res-card:hover .th img{transform:scale(1.03)}
+.res-card .bd{padding:18px 20px 22px}
+.res-card .tag{font-size:12px;color:var(--muted2);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.res-card h4{font-family:var(--g);font-weight:700;font-size:19px;line-height:1.2;margin:6px 0 8px;letter-spacing:-.01em}
+.res-card p{color:var(--muted);font-size:14px;line-height:1.5}
+.res-foot{display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between;margin-top:36px;padding-top:26px;border-top:1px solid var(--line)}
+.res-foot p{color:var(--muted);font-size:14.5px;max-width:620px}
+.modal__panel.wide{max-width:min(980px,96vw)}
+.res-view img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line);margin-top:14px}
+@media (prefers-reduced-motion:reduce){.res-card,.res-card .th img{transition:none}.res-card:hover{transform:none}.res-card:hover .th img{transform:none}}
 </style>
 </head>
 <body>
@@ -888,16 +904,13 @@ img{display:block;max-width:100%}
       <div class="porb"></div>
       <span class="eyebrow">Learn</span>
       <h1>Health education, <em>made to share.</em></h1>
-      <p class="lead">Educational resources will appear here after source review and accessibility checks.</p>
+      <p class="lead">Infographics made by ACESO's student artists to help young athletes stay safe. Tap one to read it in full.</p>
     </div>
   </section>
   <section class="section">
     <div class="wrap">
-      <div class="resource-holding reveal">
-        <h3>Resources are being prepared for publication.</h3>
-        <p>Each educational resource will be source-reviewed and checked for accessibility before it appears here.</p>
-        <button type="button" class="btn btn-ghost" data-nav="contact">Ask about resources →</button>
-      </div>
+      <div class="res-grid reveal"><button type="button" class="res-card" data-res="ski"><div class="th"><img src="img/resources/ski-safety.jpg" alt="Cover of the Ski Safety Tips infographic" loading="lazy"></div><div class="bd"><span class="tag">Winter sports · 1 page</span><h4>Ski Safety Tips</h4><p>The ten rules of the slopes, what trail signs mean, and simple habits for skiing safely.</p></div></button><button type="button" class="res-card" data-res="sport"><div class="th"><img src="img/resources/sport-injury-1.jpg" alt="Cover of the Sport Injury Prevention infographic" loading="lazy"></div><div class="bd"><span class="tag">Any sport · 2 pages</span><h4>Sport Injury Prevention</h4><p>Seven habits that lower injury risk, from warming up properly to staying hydrated.</p></div></button><button type="button" class="res-card" data-res="warm"><div class="th"><img src="img/resources/warm-up-1.jpg" alt="Cover of the Warm Up: Benefits and Tricks infographic" loading="lazy"></div><div class="bd"><span class="tag">Training · 4 pages</span><h4>Warm Up: Benefits and Tricks</h4><p>Why warming up matters, dynamic versus static stretching, and an easy routine to follow.</p></div></button><button type="button" class="res-card" data-res="football"><div class="th"><img src="img/resources/football-injury.jpg" alt="Cover of the Football Injury Prevention infographic" loading="lazy"></div><div class="bd"><span class="tag">Football · 1 page</span><h4>Football Injury Prevention</h4><p>The most common football injuries, and how technique and conditioning help prevent them.</p></div></button><button type="button" class="res-card" data-res="why"><div class="th"><img src="img/resources/why-aceso.jpg" alt="Cover of the Why is ACESO Needed? infographic" loading="lazy"></div><div class="bd"><span class="tag">The numbers · 1 page</span><h4>Why is ACESO Needed?</h4><p>What the data says about youth sports injuries, and why prevention matters.</p></div></button></div>
+      <div class="res-foot reveal"><p>Sources are cited on each infographic. These resources are for education and don't replace advice from a doctor, nurse or athletic trainer.</p><button type="button" class="btn btn-ghost" data-nav="contact">Suggest a topic →</button></div>
     </div>
   </section>
   <div class="foot-mount"></div>
@@ -1026,11 +1039,14 @@ function openModal(html){
 }
 function closeModal(){
   if(!modal.classList.contains('open'))return;
+  modalPanel.classList.remove('wide');
   modal.classList.remove('open');
   modal.setAttribute('aria-hidden','true');
   document.body.style.overflow='';
   if(lastFocused)lastFocused.focus();
 }
+const RES={ski:{t:'Ski Safety Tips',imgs:['ski-safety']},sport:{t:'Sport Injury Prevention',imgs:['sport-injury-1', 'sport-injury-2']},warm:{t:'Warm Up: Benefits and Tricks',imgs:['warm-up-1', 'warm-up-2', 'warm-up-3', 'warm-up-4']},football:{t:'Football Injury Prevention',imgs:['football-injury']},why:{t:'Why is ACESO Needed?',imgs:['why-aceso']}};
+document.querySelectorAll('[data-res]').forEach(b=>b.addEventListener('click',()=>{const r=RES[b.dataset.res];const n=r.imgs.length;openModal(`<div class="eyebrow">ACESO infographic</div><h3>${r.t}</h3><div class="res-view">${r.imgs.map((f,i)=>`<img src="img/resources/${f}.jpg" alt="${r.t}${n>1?`, page ${i+1} of ${n}`:''}" loading="lazy">`).join('')}</div>`);modalPanel.classList.add('wide');}));
 modal.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',closeModal));
 document.addEventListener('keydown',e=>{
   if(!modal.classList.contains('open'))return;
