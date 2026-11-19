@@ -1000,6 +1000,10 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.targ
 function obs(root){root.querySelectorAll('.reveal:not(.vis)').forEach(el=>io.observe(el));}
 obs(document);
 
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+function toTop(){const r=document.documentElement,sb=r.style.scrollBehavior;r.style.scrollBehavior='auto';window.scrollTo(0,0);r.style.scrollBehavior=sb;}
+toTop();
+['DOMContentLoaded','load','pageshow'].forEach(ev=>window.addEventListener(ev,()=>{toTop();requestAnimationFrame(toTop);}));
 const pages=document.querySelectorAll('.page');
 const navBtns=document.querySelectorAll('.nav-links button');
 const navMenu=document.getElementById('navlinks');
@@ -1012,7 +1016,7 @@ function showPage(id){
     b.classList.toggle('active',current);
     if(current)b.setAttribute('aria-current','page');else b.removeAttribute('aria-current');
   });
-  window.scrollTo(0,0);
+  toTop();
   navMenu.classList.remove('open');
   burger.setAttribute('aria-expanded','false');
   burger.setAttribute('aria-label','Open navigation menu');
