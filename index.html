@@ -970,7 +970,7 @@ const socials=`<a href="https://instagram.com/acesoinitiative" target="_blank" r
 const footHTML=`<footer class="foot"><div class="wrap"><div class="foot-top"><div><div class="k">ACESO Foundation</div><address>4101 Dublin Blvd., Ste. F, PMB 20<br>Dublin, CA 94568<br>info@acesoworld.com</address></div><div><div class="k">Follow</div><div class="fsoc">${socials}</div></div></div><div class="wordmark">ACESO</div><div class="foot-legal"><span>© 2026 ACESO Foundation. Advancing student-led biomedical research and health education.</span><span>Student-led nonprofit since 2024.</span></div></div></footer>`;
 document.querySelectorAll('.foot-mount').forEach(m=>m.innerHTML=footHTML);
 
-const team=[["Oscar Li","Founder & President"],["Summer Li","Co-founder & Marketing"],["Daniel Zhang","VP of Fundraising & Partnerships"],["Peter Liao","Campaign Operations & Wellness"],["Daniel Liu","Campaign & Volunteer Coordinator"],["Sarah Lu","Digital Artist"],["Ethan Zhang","Executive Assistant"],["Yijiang Li","Adult Advisor"]];
+const team=[["Oscar Li","Founder & President"],["Summer Li","Co-founder & Marketing"],["Daniel Zhang","VP of Fundraising & Partnerships"],["Daniel Liu","Campaign & Volunteer Coordinator"],["Sarah Lu","Digital Artist"],["Ethan Zhang","Executive Assistant"],["Yijiang Li","Adult Advisor"]];
 const ini=n=>n.split(' ').map(w=>w[0]).slice(0,2).join('');
 document.getElementById('teamGrid').innerHTML=team.map((t,i)=>`<div class="tcard reveal ${i%4?'d'+(i%4):''}"><div class="avatar">${ini(t[0])}</div><div><div class="nm">${t[0]}</div><div class="role">${t[1]}</div></div></div>`).join('');
 
